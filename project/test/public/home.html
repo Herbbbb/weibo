@@ -1,0 +1,35 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src="jquery-3.2.1.js"></script>
+	</head>
+	<body>
+			
+	<div id="box">111</div>
+	
+		<script>
+		
+
+
+
+		
+
+
+		$.ajax({
+			url:"/api/home",
+			data:{limit:3,skip:0},
+			success:function(data){
+				console.log(data);
+				for(var i=0;i<data.length;i++){
+					var $p = $('<p>'+data[i].username+'</p>');
+					var $p2 = $('<p>'+data[i].message+'</p>');
+					$("#box").append($p);
+					$("#box").append($p2);
+				}
+			}
+		})
+		</script>
+	</body>
+	</html>
